@@ -1,45 +1,33 @@
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 
-const Login = () => {
-  return (
-    <div className="h-screen flex justify-center items-center">
-      <Card className="w-11/12 h-5/6">
-        <div className="flex h-full justify-between items-center space-x-4">
-          <CardContent className="w-1/3">
-            <img
-              src="https://via.placeholder.com/150"
-              alt="logo"
-              className="w-80 h-96 object-cover"
-            />
-          </CardContent>
-          <Separator orientation="vertical" />
-          <CardContent className="w-2/3">
-            <CardHeader>
-              <CardTitle>Login</CardTitle>
-              <CardDescription>Enter your credentials</CardDescription>
-            </CardHeader>
-            <Input type="email" placeholder="Email" className="mb-5" />
-            <Input type="password" placeholder="Password" className="mt-5" />
-            <CardFooter>
-              <Button variant="default" className="w-full mt-10">
-                Login
-              </Button>
-            </CardFooter>
-          </CardContent>
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+export default function Login() {
+return (
+    <div className="flex items-center justify-center min-h-[100dvh] bg-gray-100 dark:bg-gray-950 px-4">
+    <Card className="w-full max-w-md">
+        <CardHeader className="space-y-1 text-center">
+        <CardTitle className="text-3xl font-bold">Sign in</CardTitle>
+        <CardDescription>Enter your Account.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-4">
+            <div className="space-y-2">
+            <Label htmlFor="Username">Name</Label>
+            <Input id="usernam" type="" placeholder="m@example.com" required />
+            </div>
+            <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input id="password" type="password" required />
         </div>
-      </Card>
+        </CardContent>
+        <CardFooter className="flex justify-end">
+        <Button type="submit" className="w-full">
+            Sign in
+        </Button>
+        </CardFooter>
+    </Card>
     </div>
-  );
-};
-
-export default Login;
+)
+}
