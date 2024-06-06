@@ -25,6 +25,11 @@ const Layout = ({ children }: LayoutProps) => {
           minSize={10}
           className="flex flex-col justify-start bg-slate-50 py-3 select-none"
         >
+          <div className="mx-auto mb-4 p-10">
+            <a href="/dashboard">
+              <img src="/src/assets/Logo.png" alt="Logo" />
+            </a>
+          </div>
           <NavLink
             to="/dashboard"
             className={`text-black font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${
