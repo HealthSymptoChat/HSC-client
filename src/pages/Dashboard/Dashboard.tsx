@@ -9,9 +9,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import CardDataStats from "@/Tables/CardDataStats";
+import CardDataStats from "@/components/CardDataStats";
 import React from "react";
-import { IoIosEye, IoIosTrendingUp, IoLogoDropbox, IoMdPerson } from "react-icons/io";
+import {
+  IoIosEye,
+  IoIosTrendingUp,
+  IoLogoDropbox,
+  IoMdPerson,
+} from "react-icons/io";
 const invoices = [
   {
     invoice: "INV001",
@@ -57,49 +62,49 @@ const invoices = [
   },
 ];
 
-
-
 const Dashboard: React.FC = () => {
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
-        <div>
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
+        {/* <div>
           <CardDataStats
             title="Total views"
             total="3.456K"
             currency="VND"
             levelUp
-
           >
-            <IoIosEye className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+            <IoIosEye
+              className="size-10 fill-primary dark:fill-white"
+              width="100"
+              height="100"
+            />
           </CardDataStats>
-        </div>
-        <CardDataStats
-          title="Profits"
-          total="3.456K"
-          currency="VND"
-
-          levelUp
-        >
-          <IoIosTrendingUp className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+        </div> */}
+        <CardDataStats title="Lợi nhuận" total="3.456K" currency="VND" levelUp>
+          <IoIosTrendingUp
+            className="size-10 fill-primary dark:fill-white"
+            width="100"
+            height="100"
+          />
+        </CardDataStats>
+        <CardDataStats title="Doanh thu" total="3.456K" currency="VND" levelUp>
+          <IoLogoDropbox
+            className="size-10 fill-primary dark:fill-white"
+            width="100"
+            height="100"
+          />
         </CardDataStats>
         <CardDataStats
-          title="Total Product"
+          title="Tổng người dùng"
           total="3.456K"
           currency="VND"
-
           levelUp
         >
-          <IoLogoDropbox className="size-10 fill-primary dark:fill-white" width="100" height="100" />
-        </CardDataStats>
-        <CardDataStats
-          title="Total User"
-          total="3.456K"
-          currency="VND"
-
-          levelUp
-        >
-          <IoMdPerson className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+          <IoMdPerson
+            className="size-10 fill-primary dark:fill-white"
+            width="100"
+            height="100"
+          />
         </CardDataStats>
       </div>
 
@@ -134,8 +139,6 @@ const Dashboard: React.FC = () => {
           </TableFooter>
         </Table>
       </div>
-
-
     </>
   );
 };

@@ -5,14 +5,14 @@ import {
   Outlet,
   NavLink,
 } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Auth/Login";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import Home from "./pages/Home";
-import Package from "./pages/Package/Package";
-import NotFound from "./pages/404/404";
+import Home from "@/pages/Home";
+import Login from "@/pages/Auth/Login";
+import Dashboard from "@/pages/Dashboard/Dashboard";
+import Package from "@/pages/Package/Package";
+import NotFound from "@/pages/404/404";
+import Layout from "@/layout/Layout";
 import { useContext } from "react";
-import { AuthContext } from "./context/AuthContext";
+import { AuthContext } from "@/context/AuthContext";
 
 const PrivateRoutes = () => {
   const { authenticated } = useContext(AuthContext);
