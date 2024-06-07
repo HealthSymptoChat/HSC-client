@@ -13,7 +13,8 @@ const Header = () => {
   return (
     <header className="bg-white py-4 shadow-md">
       <div className="w-full px-4 flex flex-row justify-between items-center">
-        <h1 className="text-primary text-2xl font-bold">My Header</h1>
+        {/* <h1 className="text-primary text-2xl font-bold">/*My Header</h1> */}
+        <h1 className="text-primary text-2xl font-bold"></h1>
         <div className="flex flex-row items-center">
           <p className="text-gray-600">Hello, Dat</p>
           <Avatar className="mx-2">

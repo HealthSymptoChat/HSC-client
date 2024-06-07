@@ -1,3 +1,4 @@
+"use client";
 import {
   Table,
   TableBody,
@@ -8,12 +9,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
+import CardDataStats from "@/Tables/CardDataStats";
+import React from "react";
+import { IoIosEye, IoIosTrendingUp, IoLogoDropbox, IoMdPerson } from "react-icons/io";
 const invoices = [
   {
     invoice: "INV001",
     paymentStatus: "Paid",
-    totalAmount: "$250.00",
+    totalAmount: "250.00",
     paymentMethod: "Credit Card",
   },
   {
@@ -54,23 +57,52 @@ const invoices = [
   },
 ];
 
-const Dashboard = () => {
+
+
+const Dashboard: React.FC = () => {
   return (
-    <div>
-      <div className="w-fullpx-4 flex flex-row justify-between items-center">
-        <div className="bg-white p-4 flex flex-row items-center shadow-md">
-          <h1 className="text-primary text-2xl font-bold">My Header</h1>
+    <>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+        <div>
+          <CardDataStats
+            title="Total views"
+            total="3.456K"
+            currency="VND"
+            levelUp
+
+          >
+            <IoIosEye className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+          </CardDataStats>
         </div>
-        <div className="bg-white p-4 flex flex-row items-center shadow-md">
-          <h1 className="text-primary text-2xl font-bold">My Header</h1>
-        </div>
-        <div className="bg-white p-4 flex flex-row items-center shadow-md">
-          <h1 className="text-primary text-2xl font-bold">My Header</h1>
-        </div>
-        <div className="bg-white p-4 flex flex-row items-center shadow-md">
-          <h1 className="text-primary text-2xl font-bold">My Header</h1>
-        </div>
+        <CardDataStats
+          title="Profits"
+          total="3.456K"
+          currency="VND"
+
+          levelUp
+        >
+          <IoIosTrendingUp className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+        </CardDataStats>
+        <CardDataStats
+          title="Total Product"
+          total="3.456K"
+          currency="VND"
+
+          levelUp
+        >
+          <IoLogoDropbox className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+        </CardDataStats>
+        <CardDataStats
+          title="Total User"
+          total="3.456K"
+          currency="VND"
+
+          levelUp
+        >
+          <IoMdPerson className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+        </CardDataStats>
       </div>
+
       <div className="w-full bg-white px-4 mt-3 rounded-lg">
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
@@ -102,7 +134,9 @@ const Dashboard = () => {
           </TableFooter>
         </Table>
       </div>
-    </div>
+
+
+    </>
   );
 };
 
