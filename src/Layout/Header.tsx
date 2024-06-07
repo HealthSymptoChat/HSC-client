@@ -7,15 +7,53 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useToast } from "@/components/ui/use-toast";
+import { AuthContext } from "@/context/AuthContext";
+import { authAxios } from "@/services/axios";
 import { ChevronDown, LogOut } from "lucide-react";
+import { useContext } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const { setAuthenticated } = useContext(AuthContext);
+  const { toast } = useToast();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const activeTab = location.pathname.split("/")[1];
+
+  const logout = async () => {
+    try {
+      const response = await authAxios.post("/auth/logout", {
+        refreshToken: localStorage.getItem("refreshToken"),
+      });
+      if (response.data.message === "success") {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        localStorage.removeItem("user");
+        setAuthenticated(false);
+        toast({
+          title: "Đăng xuất thành công",
+          variant: "default",
+        });
+        navigate("/auth/login");
+      } else {
+        toast({
+          title: "Đăng xuất thất bại",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
+  };
   return (
     <header className="bg-white py-4 shadow-md">
       <div className="w-full px-4 flex flex-row justify-between items-center">
-        <h1 className="text-primary text-2xl font-bold">My Header</h1>
+        <h1 className="text-primary text-2xl font-bold">
+          {activeTab === "dashboard" ? "Bảng điều khiển" : "Gói"}
+        </h1>
         <div className="flex flex-row items-center">
-          <p className="text-gray-600">Hello, Dat</p>
+          <p className="text-gray-600">Chào, Dat</p>
           <Avatar className="mx-2">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
@@ -27,12 +65,12 @@ const Header = () => {
               />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem onClick={() => console.log("Logout")}>
+              <DropdownMenuItem>Hồ sơ</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => logout()}>
                 <div className="flex flex-row items-center text-destructive">
-                  <span>Logout</span>
+                  <span>Đăng xuất</span>
                   <LogOut size={20} className="ml-2" />
                 </div>
               </DropdownMenuItem>

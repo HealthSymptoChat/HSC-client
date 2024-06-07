@@ -26,9 +26,9 @@ const Layout = ({ children }: LayoutProps) => {
           className="flex flex-col justify-start bg-slate-50 py-3 select-none"
         >
           <div className="mx-auto mb-4 p-10">
-            <a href="/dashboard">
+            <NavLink to="/dashboard">
               <img src="/src/assets/Logo.png" alt="Logo" />
-            </a>
+            </NavLink>
           </div>
           <NavLink
             to="/dashboard"
