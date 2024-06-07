@@ -1,18 +1,19 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Outlet,
-  NavLink,
-} from "react-router-dom";
-import Home from "@/pages/Home";
+
+import { AuthContext } from "@/context/AuthContext";
+import Layout from "@/layout/Layout";
+import NotFound from "@/pages/404/404";
 import Login from "@/pages/Auth/Login";
 import Dashboard from "@/pages/Dashboard/Dashboard";
+import Home from "@/pages/Home";
 import Package from "@/pages/Package/Package";
-import NotFound from "@/pages/404/404";
-import Layout from "@/layout/Layout";
 import { useContext } from "react";
-import { AuthContext } from "@/context/AuthContext";
+import {
+  BrowserRouter,
+  NavLink,
+  Outlet,
+  Route,
+  Routes,
+} from "react-router-dom";
 
 const PrivateRoutes = () => {
   const { authenticated } = useContext(AuthContext);
@@ -27,6 +28,7 @@ const PrivateRoutes = () => {
     </Layout>
   );
 };
+
 
 function App() {
   return (

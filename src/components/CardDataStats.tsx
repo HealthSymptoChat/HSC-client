@@ -30,6 +30,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
             {total} {currency}
           </p>{" "}
           {/* Update this line */}
+
         </div>
       </div>
       {levelUp && (
@@ -41,6 +42,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         ></svg>
+
       )}
       {levelDown && (
         <svg

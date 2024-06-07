@@ -1,4 +1,5 @@
 "use client";
+import CardDataStats from "@/components/CardDataStats";
 import {
   Table,
   TableBody,
@@ -9,14 +10,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import CardDataStats from "@/components/CardDataStats";
 import React from "react";
+
 import {
-  IoIosEye,
   IoIosTrendingUp,
   IoLogoDropbox,
-  IoMdPerson,
+  IoMdPerson
 } from "react-icons/io";
+
 const invoices = [
   {
     invoice: "INV001",
@@ -100,13 +101,15 @@ const Dashboard: React.FC = () => {
           currency="VND"
           levelUp
         >
+
           <IoMdPerson
             className="size-10 fill-primary dark:fill-white"
             width="100"
             height="100"
           />
-        </CardDataStats>
-      </div>
+        </CardDataStats >
+
+      </div >
 
       <div className="w-full bg-white px-4 mt-3 rounded-lg">
         <Table>
