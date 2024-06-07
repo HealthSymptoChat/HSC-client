@@ -41,7 +41,7 @@ export default function Login() {
         toast({
           title: "Đăng nhập thành công",
           // description: "Login successful",
-          variant: "default",
+          variant: "success",
         });
         navigate("/dashboard");
       } else {

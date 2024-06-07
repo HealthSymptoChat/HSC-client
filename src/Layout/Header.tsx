@@ -33,7 +33,7 @@ const Header = () => {
         setAuthenticated(false);
         toast({
           title: "Đăng xuất thành công",
-          variant: "default",
+          variant: "success",
         });
         navigate("/auth/login");
       } else {
