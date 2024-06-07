@@ -8,7 +8,7 @@ import {
 import Home from "./pages/Home";
 import Login from "./pages/Auth/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Layout from "./layout/Layout";
+import Home from "./pages/Home";
 import Package from "./pages/Package/Package";
 import NotFound from "./pages/404/404";
 import { useContext } from "react";

@@ -3,11 +3,11 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { MdSpaceDashboard } from "react-icons/md";
 import { GoPackage } from "react-icons/go";
+import { MdSpaceDashboard } from "react-icons/md";
 import { NavLink, useLocation } from "react-router-dom";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -32,18 +32,16 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
           <NavLink
             to="/dashboard"
-            className={`text-black font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${
-              activeTab === "dashboard" ? "bg-secondary" : ""
-            }`}
+            className={`text-black font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${activeTab === "dashboard" ? "bg-secondary" : ""
+              }`}
           >
             <MdSpaceDashboard size={25} />
             <p className="text-sm p-2 ">Bảng điều khiển</p>
           </NavLink>
           <NavLink
             to="/package"
-            className={`text-black font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${
-              activeTab === "package" ? "bg-secondary" : ""
-            }`}
+            className={`text-black font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${activeTab === "package" ? "bg-secondary" : ""
+              }`}
           >
             <GoPackage size={25} />
             <p className="text-sm p-2 ">Gói</p>
