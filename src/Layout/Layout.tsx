@@ -52,7 +52,7 @@ const Layout = ({ children }: LayoutProps) => {
         <ResizableHandle withHandle className="h-screen" />
         <ResizablePanel defaultSize={85} minSize={50}>
           <Header />
-          <div className="p-3 h-screen bg-gray-100">{children}</div>
+          <div className="p-3 h-full bg-gray-100">{children}</div>
         </ResizablePanel>
       </ResizablePanelGroup>
       <Footer />
