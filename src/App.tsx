@@ -5,7 +5,6 @@ import NotFound from "@/pages/404/404";
 import Login from "@/pages/Auth/Login";
 import Dashboard from "@/pages/Dashboard/Dashboard";
 import Home from "@/pages/Home";
-import Package from "@/pages/Package/Package";
 import { useContext } from "react";
 import {
   BrowserRouter,
@@ -14,6 +13,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import Package from "./pages/Package/Package";
 
 const PrivateRoutes = () => {
   const { authenticated } = useContext(AuthContext);
