@@ -1,4 +1,3 @@
-
 import { AuthContext } from "@/context/AuthContext";
 import Layout from "@/layout/Layout";
 import NotFound from "@/pages/404/404";
@@ -28,7 +27,6 @@ const PrivateRoutes = () => {
     </Layout>
   );
 };
-
 
 function App() {
   return (

@@ -8,6 +8,7 @@ import { MdSpaceDashboard } from "react-icons/md";
 import { NavLink, useLocation } from "react-router-dom";
 import Footer from "@/layout/Footer";
 import Header from "@/layout/Header";
+import logo from "@/assets/Logo.png";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -27,7 +28,7 @@ const Layout = ({ children }: LayoutProps) => {
         >
           <div className="mx-auto mb-4 p-10">
             <NavLink to="/dashboard">
-              <img src="/src/assets/Logo.png" alt="Logo" />
+              <img src={logo} alt="Logo" />
             </NavLink>
           </div>
           <NavLink

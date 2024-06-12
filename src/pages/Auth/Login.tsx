@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
+import logo from "@/assets/Logo.png";
 
 export default function Login() {
   const { toast } = useToast();
@@ -59,7 +60,7 @@ export default function Login() {
     <div className="flex items-center justify-center min-h-[100dvh] bg-gray-100 dark:bg-gray-950 px-4">
       <Card className="w-full max-w-md">
         <div className="my-5">
-          <img className="w-40 mx-auto" src="/src/assets/Logo.png" alt="Logo" />
+          <img className="w-40 mx-auto" src={logo} alt="Logo" />
         </div>
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-3xl font-bold">Đăng nhập</CardTitle>

@@ -1,16 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
+import notFound from "@/assets/404.svg";
 
 const NotFound = () => {
   const navigate = useNavigate();
   return (
     <div className="flex min-h-[100dvh] flex-col items-center justify-center gap-6 px-4 py-12 md:px-6">
       <div className="max-w-md text-center">
-        <img
-          src="/src/assets/404.svg"
-          alt="Error 404"
-          className="mx-auto h-50 w-50"
-        />
+        <img src={notFound} alt="Error 404" className="mx-auto h-50 w-50" />
         <p className="mt-4 text-gray-500 dark:text-gray-400 font-bold text-6xl">
           404
         </p>
