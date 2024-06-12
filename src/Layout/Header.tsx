@@ -53,7 +53,7 @@ const Header = () => {
           {activeTab === "dashboard" ? "Bảng điều khiển" : "Gói"}
         </h1>
         <div className="flex flex-row items-center">
-          <p className="text-gray-600">Chào, Dat</p>
+          <p className="text-gray-600">Chào, Admin</p>
           <Avatar className="mx-2">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
@@ -67,7 +67,7 @@ const Header = () => {
             <DropdownMenuContent>
               <DropdownMenuLabel>Tài khoản</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Hồ sơ</DropdownMenuItem>
+              {/* <DropdownMenuItem>Hồ sơ</DropdownMenuItem> */}
               <DropdownMenuItem onClick={() => logout()}>
                 <div className="flex flex-row items-center text-destructive">
                   <span>Đăng xuất</span>
