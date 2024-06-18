@@ -8,15 +8,11 @@ import {
   TableFooter,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from "@/components/ui/table";
 import React from "react";
 
-import {
-  IoIosTrendingUp,
-  IoLogoDropbox,
-  IoMdPerson
-} from "react-icons/io";
+import { IoIosTrendingUp, IoLogoDropbox, IoMdPerson } from "react-icons/io";
 
 const invoices = [
   {
@@ -95,21 +91,14 @@ const Dashboard: React.FC = () => {
             height="100"
           />
         </CardDataStats>
-        <CardDataStats
-          title="Tổng người dùng"
-          total="3.456K"
-          currency="VND"
-          levelUp
-        >
-
+        <CardDataStats title="Tổng người dùng" total="500" currency="" levelUp>
           <IoMdPerson
             className="size-10 fill-primary dark:fill-white"
             width="100"
             height="100"
           />
-        </CardDataStats >
-
-      </div >
+        </CardDataStats>
+      </div>
 
       <div className="flex-auto flex-col ">
         <div className="whitespace-nowrap font-semibold text-lg mt-5 mb-5">
@@ -118,7 +107,9 @@ const Dashboard: React.FC = () => {
       </div>
 
       <div className="flex-auto flex-col ">
-        <div className="whitespace-nowrap font-semibold text-lg mt-5 mb-5">  {/* Remove TableCaption and use a div with the appropriate classes */}
+        <div className="whitespace-nowrap font-semibold text-lg mt-5 mb-5">
+          {" "}
+          {/* Remove TableCaption and use a div with the appropriate classes */}
           Lịch sử giao dịch
         </div>
         <div className="w-full bg-white px-4 mt-3 rounded-lg">
@@ -135,7 +126,9 @@ const Dashboard: React.FC = () => {
             <TableBody>
               {invoices.map((invoice) => (
                 <TableRow key={invoice.invoice}>
-                  <TableCell className="font-medium">{invoice.invoice}</TableCell>
+                  <TableCell className="font-medium">
+                    {invoice.invoice}
+                  </TableCell>
                   <TableCell>{invoice.paymentStatus}</TableCell>
                   <TableCell>{invoice.paymentMethod}</TableCell>
                   <TableCell className="text-right">
@@ -154,7 +147,6 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
     </>
-
   );
 };
 

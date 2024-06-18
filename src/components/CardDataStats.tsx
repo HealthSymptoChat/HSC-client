@@ -18,7 +18,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   children,
 }) => {
   return (
-    <div className="flex flex-col items-center justify-center w-3/4 mx-auto p-4 space-y-3 border rounded-lg border-black dark:border-slate-700">
+    <div className="flex flex-col items-center justify-center w-3/4 mx-auto p-4 space-y-3 border rounded-lg dark:border-slate-700 bg-white shadow-md">
       {/* Render the children here */}
       <div className="flex w-full justify-between items-center">
         {children}
@@ -30,7 +30,6 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
             {total} {currency}
           </p>{" "}
           {/* Update this line */}
-
         </div>
       </div>
       {levelUp && (
@@ -42,7 +41,6 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         ></svg>
-
       )}
       {levelDown && (
         <svg
