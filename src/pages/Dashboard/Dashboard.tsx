@@ -66,15 +66,17 @@ const Dashboard: React.FC = () => {
     totalUser: 0,
     revenue: 0,
     payment: [],
+    registeredUser: 0,
   });
 
   const getDashboard = async () => {
     try {
       const response = await authAxios.get("/dashboard");
       if (response.data.message === "success") {
-        const { totalUser, revenue, payment } = response.data.data;
-        console.log(totalUser, revenue, payment);
-        setDashboard({ totalUser, revenue, payment });
+        const { totalUser, revenue, payment, registeredUser } =
+          response.data.data;
+        console.log(totalUser, revenue, payment, registeredUser);
+        setDashboard({ totalUser, revenue, payment, registeredUser });
       } else {
       }
     } catch (error) {
@@ -101,13 +103,6 @@ const Dashboard: React.FC = () => {
             />
           </CardDataStats>
         </div> */}
-        <CardDataStats title="Lợi nhuận" total="3.456K" currency="VND" levelUp>
-          <IoIosTrendingUp
-            className="size-10 fill-primary dark:fill-white"
-            width="100"
-            height="100"
-          />
-        </CardDataStats>
         <CardDataStats
           title="Doanh thu"
           total={dashboard.revenue.toString()}
@@ -127,6 +122,18 @@ const Dashboard: React.FC = () => {
           levelUp
         >
           <IoMdPerson
+            className="size-10 fill-primary dark:fill-white"
+            width="100"
+            height="100"
+          />
+        </CardDataStats>
+        <CardDataStats
+          title="Đã đăng ký"
+          total={dashboard.registeredUser.toString()}
+          currency=""
+          levelUp
+        >
+          <IoIosTrendingUp
             className="size-10 fill-primary dark:fill-white"
             width="100"
             height="100"

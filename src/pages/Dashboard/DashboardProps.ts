@@ -2,6 +2,7 @@ interface DashboardProps {
   totalUser: number;
   revenue: number;
   payment: Payment[];
+  registeredUser: number;
 }
 
 interface Payment {
