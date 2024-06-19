@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://hsc-sever.vercel.app/api/v1";
+// const baseURL = "https://hsc-sever.vercel.app/api/v1";
+const baseURL = "http://localhost:5000/api/v1";
 
 const authAxios = axios.create({
   baseURL: baseURL,
