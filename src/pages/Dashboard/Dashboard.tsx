@@ -1,11 +1,25 @@
-import CardDataStats from '@/components/CardDataStats';
-import Chart from '@/components/Chart';
-import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { authAxios } from '@/services/axios';
-import React, { useEffect, useState } from 'react';
-import { FaCashRegister } from 'react-icons/fa';
-import { RiUserFill, RiUserFollowFill } from 'react-icons/ri';
+import CardDataStats from "@/components/CardDataStats";
+import Chart from "@/components/Chart";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { authAxios } from "@/services/axios";
+import React, { useEffect, useState } from "react";
+import { FaCashRegister } from "react-icons/fa";
+import { RiUserFill, RiUserFollowFill } from "react-icons/ri";
 
 interface DashboardProps {
   totalUser: number;
@@ -23,6 +37,10 @@ interface DashboardProps {
     amount: number;
   }>;
   registeredUser: number;
+  numberOfOrderInMonth: Array<{
+    name: string;
+    data: number[];
+  }>;
 }
 
 const Dashboard: React.FC = () => {
@@ -31,6 +49,7 @@ const Dashboard: React.FC = () => {
     revenue: 0,
     payment: [],
     registeredUser: 0,
+    numberOfOrderInMonth: [],
   });
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -42,14 +61,31 @@ const Dashboard: React.FC = () => {
 
   const getDashboard = async () => {
     try {
-      const response = await authAxios.get('/dashboard');
-      if (response.data.message === 'success') {
-        const { totalUser, revenue, payment, registeredUser } = response.data.data;
-        console.log(totalUser, revenue, payment, registeredUser);
-        setDashboard({ totalUser, revenue, payment, registeredUser });
+      const response = await authAxios.get("/dashboard");
+      if (response.data.message === "success") {
+        const {
+          totalUser,
+          revenue,
+          payment,
+          registeredUser,
+          numberOfOrderInMonth,
+        } = response.data.data;
+        console.log(
+          totalUser,
+          revenue,
+          payment,
+          registeredUser,
+          numberOfOrderInMonth
+        );
+        setDashboard({
+          totalUser,
+          revenue,
+          payment,
+          registeredUser,
+          numberOfOrderInMonth,
+        });
         setTotalPages(Math.ceil(payment.length / 10));
       } else {
-
       }
     } catch (error) {
       console.log(error);
@@ -60,7 +96,10 @@ const Dashboard: React.FC = () => {
     setCurrentPage(pageNumber);
   };
 
-  const paginatedData = dashboard.payment?.slice((currentPage - 1) * 10, currentPage * 10);
+  const paginatedData = dashboard.payment?.slice(
+    (currentPage - 1) * 10,
+    currentPage * 10
+  );
 
   return (
     <>
@@ -71,7 +110,11 @@ const Dashboard: React.FC = () => {
           currency="VND"
           levelUp
         >
-          <FaCashRegister className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+          <FaCashRegister
+            className="size-10 fill-primary dark:fill-white"
+            width="100"
+            height="100"
+          />
         </CardDataStats>
         <CardDataStats
           title="Tổng người dùng"
@@ -79,7 +122,11 @@ const Dashboard: React.FC = () => {
           currency=""
           levelUp
         >
-          <RiUserFill className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+          <RiUserFill
+            className="size-10 fill-primary dark:fill-white"
+            width="100"
+            height="100"
+          />
         </CardDataStats>
         <CardDataStats
           title="Đã đăng ký"
@@ -87,7 +134,11 @@ const Dashboard: React.FC = () => {
           currency=""
           levelUp
         >
-          <RiUserFollowFill className="size-10 fill-primary dark:fill-white" width="100" height="100" />
+          <RiUserFollowFill
+            className="size-10 fill-primary dark:fill-white"
+            width="100"
+            height="100"
+          />
         </CardDataStats>
       </div>
 
@@ -115,8 +166,12 @@ const Dashboard: React.FC = () => {
             <TableBody>
               {paginatedData?.map((invoice) => (
                 <TableRow key={invoice._id}>
-                  <TableCell className="font-medium">{invoice.orderCode}</TableCell>
-                  <TableCell>{invoice.status ? 'Đã thanh toán' : 'Đang chờ thanh toán'}</TableCell>
+                  <TableCell className="font-medium">
+                    {invoice.orderCode}
+                  </TableCell>
+                  <TableCell>
+                    {invoice.status ? "Đã thanh toán" : "Đang chờ thanh toán"}
+                  </TableCell>
                   <TableCell>{invoice.userId.username}</TableCell>
                   <TableCell>{invoice.package_id.packageName}</TableCell>
                   <TableCell>{invoice.amount}</TableCell>
@@ -125,33 +180,31 @@ const Dashboard: React.FC = () => {
             </TableBody>
           </Table>
 
-
           <div className="flex justify-end">
             <Pagination>
               <PaginationContent>
                 <PaginationItem>
                   <PaginationPrevious
-                    href="#"
                     onClick={() => handlePageChange(currentPage - 1)}
-                  // disabled={currentPage === 1}
+                    // disabled={currentPage === 1}
                   />
                 </PaginationItem>
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <PaginationItem key={page}>
-                    <PaginationLink
-                      href="#"
-                      onClick={() => handlePageChange(page)}
-                    // active={page === currentPage}
-                    >
-                      {page}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => (
+                    <PaginationItem key={page}>
+                      <PaginationLink
+                        onClick={() => handlePageChange(page)}
+                        // active={page === currentPage}
+                      >
+                        {page}
+                      </PaginationLink>
+                    </PaginationItem>
+                  )
+                )}
                 <PaginationItem>
                   <PaginationNext
-                    href="#"
                     onClick={() => handlePageChange(currentPage + 1)}
-                  // disabled={currentPage === totalPages}
+                    // disabled={currentPage === totalPages}
                   />
                 </PaginationItem>
               </PaginationContent>
