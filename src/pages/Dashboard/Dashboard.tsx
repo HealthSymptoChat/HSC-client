@@ -20,7 +20,6 @@ import { authAxios } from "@/services/axios";
 import React, { useEffect, useState } from "react";
 import { FaCashRegister } from "react-icons/fa";
 import { RiUserFill, RiUserFollowFill } from "react-icons/ri";
-
 interface DashboardProps {
   totalUser: number;
   revenue: number;
@@ -144,7 +143,7 @@ const Dashboard: React.FC = () => {
 
       <div className="flex-auto flex-col">
         <div className="whitespace-nowrap font-semibold text-lg mt-5 mb-5">
-          <Chart />
+          <Chart series={dashboard.numberOfOrderInMonth} />
         </div>
       </div>
 
@@ -186,7 +185,7 @@ const Dashboard: React.FC = () => {
                 <PaginationItem>
                   <PaginationPrevious
                     onClick={() => handlePageChange(currentPage - 1)}
-                    // disabled={currentPage === 1}
+                  // disabled={currentPage === 1}
                   />
                 </PaginationItem>
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(
@@ -194,7 +193,7 @@ const Dashboard: React.FC = () => {
                     <PaginationItem key={page}>
                       <PaginationLink
                         onClick={() => handlePageChange(page)}
-                        // active={page === currentPage}
+                      // active={page === currentPage}
                       >
                         {page}
                       </PaginationLink>
@@ -204,7 +203,7 @@ const Dashboard: React.FC = () => {
                 <PaginationItem>
                   <PaginationNext
                     onClick={() => handlePageChange(currentPage + 1)}
-                    // disabled={currentPage === totalPages}
+                  // disabled={currentPage === totalPages}
                   />
                 </PaginationItem>
               </PaginationContent>
