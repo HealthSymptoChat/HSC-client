@@ -1,5 +1,5 @@
 import { ApexOptions } from "apexcharts";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const options: ApexOptions = {
@@ -111,31 +111,25 @@ const options: ApexOptions = {
       },
     },
     min: 0,
-    max: 100,
+    max: 10,
   },
 };
 
-interface ChartState {
-  series: {
+interface ChartProps {
+  series: Array<{
     name: string;
     data: number[];
-  }[];
+  }>;
 }
 
-const Chart: React.FC = () => {
-  const [state, setState] = useState<ChartState>({
-    series: [
-      {
-        name: "Cơ bản",
-        data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30, 45],
-      },
-
-      {
-        name: "Chuyên nghiệp",
-        data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39, 51],
-      },
-    ],
+const Chart: React.FC<ChartProps> = ({ series }) => {
+  const [state, setState] = useState<ChartProps>({
+    series,
   });
+
+  useEffect(() => {
+    setState({ series });
+  }, [series]);
 
   const handleReset = () => {
     setState((prevState) => ({
