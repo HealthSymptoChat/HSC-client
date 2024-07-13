@@ -24,7 +24,7 @@ const Layout = ({ children }: LayoutProps) => {
         <ResizablePanel
           defaultSize={15}
           minSize={10}
-          className="flex flex-col justify-start bg-slate-50 py-3 select-none"
+          className="flex flex-col justify-start bg-slate-50 dark:bg-zinc-950 py-3 select-none"
         >
           <div className="mx-auto mb-4 p-10">
             <NavLink to="/dashboard">
@@ -33,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
           <NavLink
             to="/dashboard"
-            className={`text-black font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${
+            className={`text-black dark:text-slate-50 font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary flex flex-row justify-start items-center ${
               activeTab === "dashboard" ? "bg-secondary" : ""
             }`}
           >
@@ -42,7 +42,7 @@ const Layout = ({ children }: LayoutProps) => {
           </NavLink>
           <NavLink
             to="/package"
-            className={`text-black font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${
+            className={`text-black dark:text-slate-50 font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${
               activeTab === "package" ? "bg-secondary" : ""
             }`}
           >
@@ -53,7 +53,9 @@ const Layout = ({ children }: LayoutProps) => {
         <ResizableHandle withHandle className="h-screen" />
         <ResizablePanel defaultSize={85} minSize={50}>
           <Header />
-          <div className="p-3 h-full bg-gray-100">{children}</div>
+          <div className="p-3 h-full bg-gray-100 dark:bg-zinc-800">
+            {children}
+          </div>
         </ResizablePanel>
       </ResizablePanelGroup>
       <Footer />

@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -47,13 +48,13 @@ const Header = () => {
     }
   };
   return (
-    <header className="bg-white py-4 shadow-md">
+    <header className="dark:bg-black py-4 shadow-md">
       <div className="w-full px-4 flex flex-row justify-between items-center">
-        <h1 className="text-primary text-2xl font-bold">
+        <h1 className="text-primary text-2xl font-bold dark:text-white">
           {activeTab === "dashboard" ? "Bảng điều khiển" : "Gói"}
         </h1>
         <div className="flex flex-row items-center">
-          <p className="text-gray-600">Chào, Admin</p>
+          <p className="text-gray-600 dark:text-white">Chào, Admin</p>
           <Avatar className="mx-2">
             <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
@@ -70,12 +71,13 @@ const Header = () => {
               {/* <DropdownMenuItem>Hồ sơ</DropdownMenuItem> */}
               <DropdownMenuItem onClick={() => logout()}>
                 <div className="flex flex-row items-center text-destructive">
-                  <span>Đăng xuất</span>
-                  <LogOut size={20} className="ml-2" />
+                  <span className="text-red-500 font-semibold">Đăng xuất</span>
+                  <LogOut size={20} className="ml-2" color="red" />
                 </div>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          {/* <ModeToggle /> */}
         </div>
       </div>
     </header>

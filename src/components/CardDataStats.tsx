@@ -18,7 +18,7 @@ const CardDataStats: React.FC<CardDataStatsProps> = ({
   children,
 }) => {
   return (
-    <div className="flex flex-col items-center justify-center w-3/4 mx-auto p-4 space-y-3 border rounded-lg dark:border-slate-700 bg-white shadow-md">
+    <div className="flex flex-col items-center justify-center w-3/4 mx-auto p-4 space-y-3 border rounded-lg dark:border-zinc-800 dark:bg-black bg-white shadow-md">
       {/* Render the children here */}
       <div className="flex w-full justify-between items-center">
         {children}

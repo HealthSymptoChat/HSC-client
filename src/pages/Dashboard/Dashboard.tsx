@@ -110,7 +110,7 @@ const Dashboard: React.FC = () => {
           levelUp
         >
           <FaCashRegister
-            className="size-10 fill-primary dark:fill-white"
+            className="size-10 fill-primary dark:fill-primary"
             width="100"
             height="100"
           />
@@ -122,7 +122,7 @@ const Dashboard: React.FC = () => {
           levelUp
         >
           <RiUserFill
-            className="size-10 fill-primary dark:fill-white"
+            className="size-10 fill-primary dark:fill-primary"
             width="100"
             height="100"
           />
@@ -134,7 +134,7 @@ const Dashboard: React.FC = () => {
           levelUp
         >
           <RiUserFollowFill
-            className="size-10 fill-primary dark:fill-white"
+            className="size-10 fill-primary dark:fill-primary"
             width="100"
             height="100"
           />
@@ -151,7 +151,7 @@ const Dashboard: React.FC = () => {
         <div className="whitespace-nowrap font-semibold text-lg mt-5 mb-5">
           Lịch sử giao dịch
         </div>
-        <div className="w-full bg-white mt-3 rounded-lg">
+        <div className="w-full bg-white dark:bg-black mt-3 rounded-lg">
           <Table>
             <TableHeader>
               <TableRow>
@@ -185,7 +185,7 @@ const Dashboard: React.FC = () => {
                 <PaginationItem>
                   <PaginationPrevious
                     onClick={() => handlePageChange(currentPage - 1)}
-                  // disabled={currentPage === 1}
+                    // disabled={currentPage === 1}
                   />
                 </PaginationItem>
                 {Array.from({ length: totalPages }, (_, i) => i + 1).map(
@@ -193,7 +193,7 @@ const Dashboard: React.FC = () => {
                     <PaginationItem key={page}>
                       <PaginationLink
                         onClick={() => handlePageChange(page)}
-                      // active={page === currentPage}
+                        // active={page === currentPage}
                       >
                         {page}
                       </PaginationLink>
@@ -203,7 +203,7 @@ const Dashboard: React.FC = () => {
                 <PaginationItem>
                   <PaginationNext
                     onClick={() => handlePageChange(currentPage + 1)}
-                  // disabled={currentPage === totalPages}
+                    // disabled={currentPage === totalPages}
                   />
                 </PaginationItem>
               </PaginationContent>
