@@ -13,6 +13,7 @@ import {
   Routes,
 } from "react-router-dom";
 import Package from "./pages/Package/Package";
+import { ThemeProvider } from "./components/theme-provider";
 
 const PrivateRoutes = () => {
   const { authenticated } = useContext(AuthContext);
@@ -30,17 +31,19 @@ const PrivateRoutes = () => {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth/login" element={<Login />} />
-        <Route element={<PrivateRoutes />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/package" element={<Package />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auth/login" element={<Login />} />
+          <Route element={<PrivateRoutes />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/package" element={<Package />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
