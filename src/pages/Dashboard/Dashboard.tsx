@@ -150,10 +150,10 @@ const Dashboard: React.FC = () => {
                   <TableCell className="font-medium">
                     {invoice.orderCode}
                   </TableCell>
+                  <TableCell>{formatDate(invoice.paymentDate)}</TableCell>
                   <TableCell>
                     {formatDate(invoice.userId.expirePackages)}
                   </TableCell>
-                  <TableCell>{formatDate(invoice.paymentDate)}</TableCell>
                   <TableCell>{invoice.userId.username}</TableCell>
                   <TableCell>{invoice.package_id.packageName}</TableCell>
                   <TableCell>{formatNumber(invoice.amount)}</TableCell>
