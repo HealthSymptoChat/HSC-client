@@ -16,31 +16,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { formatDate, formatNumber } from "@/lib/Formatter";
 import { authAxios } from "@/services/axios";
 import React, { useEffect, useState } from "react";
 import { FaCashRegister } from "react-icons/fa";
 import { RiUserFill, RiUserFollowFill } from "react-icons/ri";
-interface DashboardProps {
-  totalUser: number;
-  revenue: number;
-  payment: Array<{
-    _id: string;
-    orderCode: string;
-    status: boolean;
-    userId: {
-      username: string;
-    };
-    package_id: {
-      packageName: string;
-    };
-    amount: number;
-  }>;
-  registeredUser: number;
-  numberOfOrderInMonth: Array<{
-    name: string;
-    data: number[];
-  }>;
-}
+import DashboardProps from "./DashboardProps";
 
 const Dashboard: React.FC = () => {
   const [dashboard, setDashboard] = useState<DashboardProps>({
@@ -105,7 +86,7 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 xl:grid-cols-3 2xl:gap-7.5">
         <CardDataStats
           title="Doanh thu"
-          total={dashboard.revenue.toString()}
+          total={formatNumber(dashboard.revenue)}
           currency="VND"
           levelUp
         >
@@ -156,7 +137,8 @@ const Dashboard: React.FC = () => {
             <TableHeader>
               <TableRow>
                 <TableHead>Mã order</TableHead>
-                <TableHead>Trạng thái</TableHead>
+                <TableHead>Ngày thanh toán</TableHead>
+                <TableHead>Ngày hết hạn</TableHead>
                 <TableHead>Người mua</TableHead>
                 <TableHead>Tên gói</TableHead>
                 <TableHead>Số tiền</TableHead>
@@ -169,11 +151,12 @@ const Dashboard: React.FC = () => {
                     {invoice.orderCode}
                   </TableCell>
                   <TableCell>
-                    {invoice.status ? "Đã thanh toán" : "Đang chờ thanh toán"}
+                    {formatDate(invoice.userId.expirePackages)}
                   </TableCell>
+                  <TableCell>{formatDate(invoice.paymentDate)}</TableCell>
                   <TableCell>{invoice.userId.username}</TableCell>
                   <TableCell>{invoice.package_id.packageName}</TableCell>
-                  <TableCell>{invoice.amount}</TableCell>
+                  <TableCell>{formatNumber(invoice.amount)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
