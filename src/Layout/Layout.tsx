@@ -33,7 +33,7 @@ const Layout = ({ children }: LayoutProps) => {
           </div>
           <NavLink
             to="/dashboard"
-            className={`text-black dark:text-slate-50 font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary flex flex-row justify-start items-center ${
+            className={`text-black dark:text-slate-50 font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary rounded-lg flex flex-row justify-start items-center ${
               activeTab === "dashboard" ? "bg-secondary" : ""
             }`}
           >
@@ -42,7 +42,7 @@ const Layout = ({ children }: LayoutProps) => {
           </NavLink>
           <NavLink
             to="/package"
-            className={`text-black dark:text-slate-50 font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary  flex flex-row justify-start items-center ${
+            className={`text-black dark:text-slate-50 font-semibold w-full px-4 py-2 text-center text-xs mt-3 hover:bg-secondary rounded-lg flex flex-row justify-start items-center ${
               activeTab === "package" ? "bg-secondary" : ""
             }`}
           >
